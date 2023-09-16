@@ -11,6 +11,7 @@ import LastNameFormField from "../FormComponents/LastNameFormField/LastNameFormF
 import PasswordFormField from "../FormComponents/PasswordFormField/PasswordFormField"
 import AccountTypeFormRadioGroup from "../FormComponents/AccountTypeFormRadioGroup/AccountTypeFormRadioGroup"
 import FormBtn from "../FormComponents/FormBtn/FormBtn"
+import hashpass from "@/lib/bcrypt/hashPass"
 
 export default function SignupForm() {
 	const router = useRouter()
@@ -36,10 +37,11 @@ export default function SignupForm() {
 		resolver: zodResolver(userSignupSchema),
 		defaultValues: {
 			accountType: "supporter",
-			email: "",
-			firstName: "",
-			lastName: "",
-			password: "",
+			confirmEmail: "rami.batnigi@gmail.com",
+			email: "rami.batnigi@gmail.com",
+			firstName: "Rami",
+			lastName: "Elbatnigi",
+			password: "rami1995",
 		},
 	})
 
@@ -47,8 +49,12 @@ export default function SignupForm() {
 		formState: { errors },
 	} = form
 
-	function onSubmit(data: z.infer<typeof userSignupSchema>) {
-		router.push("/")
+	async function onSubmit(data: z.infer<typeof userSignupSchema>) {
+		//Will send the data to an API at this stage
+		const hashedPassword = await hashpass(data.password)
+		
+
+		console.log(hashedPassword)
 	}
 	return (
 		<Form {...form}>

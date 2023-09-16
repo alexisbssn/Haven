@@ -1,14 +1,16 @@
-import { RequestType } from "@/types"
-import mongoose, { Schema } from "mongoose"
+import { RequestType } from "@/types";
+import mongoose, { Schema } from "mongoose";
 
 const requestTypeSchema = new Schema<RequestType>({
-	needsAdvancedVerification: Boolean,
-	category: String,
-	iconUrl: String,
-	iconWithLabelUrl: String,
-	description: String,
-	createdAt: Date,
-	updatedAt: Date,
-})
+  needsAdvancedVerification: Boolean,
+  category: String,
+  iconUrl: String,
+  iconWithLabelUrl: String,
+  description: String,
+  createdAt: Date,
+  updatedAt: Date,
+});
 
-export const RequestTypeModel = mongoose.models.RequestType || mongoose.model<RequestType>("RequestType", requestTypeSchema)
+export const RequestTypeModel =
+  mongoose.models.RequestType ||
+  mongoose.model<RequestType>("RequestType", requestTypeSchema);

@@ -12,3 +12,7 @@ export interface User {
 	lastName: string
 	type: UserType
 }
+
+export interface DbUser extends User, Document {
+	_id: string
+}

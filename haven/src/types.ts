@@ -1,6 +1,6 @@
 import { Document, Types } from "mongoose"
 
-type LoginField = "email" | "password"
+export type LoginField = "email" | "password"
 
 export type UserType = "refugee" | "supporter"
 
@@ -16,3 +16,6 @@ export interface User {
 export interface DbUser extends User, Document {
 	_id: string
 }
+
+
+type AvailableCities = ["Calgary" , "Toronto" , "Montreal"]

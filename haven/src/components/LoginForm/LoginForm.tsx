@@ -5,13 +5,15 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import EmailFormField from "./EmailFormField/EmailFormField"
 import PasswordFormField from "./PasswordFormField/PasswordFormField"
-import { useEffect, useState } from "react"
 import { Button } from "../ui/button"
+import { useRouter } from "next/navigation"
 
 /**
  * This is the form that you see to login
  */
 export default function LoginForm() {
+	const router = useRouter()
+
 	const userLoginSchema = z.object({
 		email: z.string().min(2).email({ message: "Invalid email address" }),
 		password: z
@@ -33,19 +35,9 @@ export default function LoginForm() {
 	} = form
 
 	function onSubmit(data: z.infer<typeof userLoginSchema>) {
-		console.log('you managed to run the data')
-		console.log(data)
+		router.push("/dashboard")
 	}
 
-	async function  exampleSendingInfo() {
-		await fetch("/api/loginUser",{
-			method: "POST",
-			body: JSON.stringify({})
-
-		})
-
-
-	}
 
 
 	return (

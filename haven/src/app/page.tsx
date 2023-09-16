@@ -10,7 +10,7 @@ export default function Home() {
 				<div className="mb-7 flex flex-col items-center">
 					<Image
 						src={havenLogo}
-						alt=""
+						alt="logo"
 						priority
 					/>
 					<h3 className="pt-8 text-center text-lg font-bold">Welcome to Haven!</h3>

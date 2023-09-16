@@ -1,6 +1,7 @@
 "use client"
 import { FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { LoginField } from "@/types"
 import { FieldError } from "react-hook-form"
 
 type Props = {

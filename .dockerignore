@@ -1,0 +1,9 @@
+
+.dockerignore
+Dockerfile*
+docker-compose*
+frontend-mentor_resources
+coverage
+.vscode
+.next
+.swc

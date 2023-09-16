@@ -1,10 +1,12 @@
 services:
   frontend:
     build: 
-      context: .
+      context: ./haven
       dockerfile: Dockerfile.development
     volumes:
-      - ./:/app
+      - ./haven:/app
       - /app/node_modules
     ports:
       - "3000:3000"
+  
+

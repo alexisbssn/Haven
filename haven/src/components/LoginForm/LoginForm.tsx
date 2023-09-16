@@ -1,12 +1,13 @@
 "use client"
+import { Button } from "../ui/button"
 import { Form } from "../ui/form"
 import { useForm } from "react-hook-form"
+import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import EmailFormField from "./EmailFormField/EmailFormField"
-import PasswordFormField from "./PasswordFormField/PasswordFormField"
-import { Button } from "../ui/button"
-import { useRouter } from "next/navigation"
+import EmailFormField from "../FormComponents/EmailFormField/EmailFormField"
+import PasswordFormField from "../FormComponents/PasswordFormField/PasswordFormField"
+import FormBtn from "../FormComponents/FormBtn/FormBtn"
 
 /**
  * This is the form that you see to login
@@ -38,22 +39,26 @@ export default function LoginForm() {
 		router.push("/dashboard")
 	}
 
-
-
 	return (
-		<Form {...form} >
-			<form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
+		<Form {...form}>
+			<form
+				onSubmit={form.handleSubmit(onSubmit)}
+				className="flex flex-col"
+			>
 				<EmailFormField
-					error={errors.email}
 					control={form}
+					error={errors.email}
 					name="email"
+					text="Email Address"
 				/>
 				<PasswordFormField
-					error={errors.password}
 					control={form}
+					error={errors.password}
 					name="password"
+					signup={false}
+					text="Password"
 				/>
-				<Button className="mt-4 bg-lady_of_the_night">Login</Button>
+				<FormBtn text="Log in"/>
 			</form>
 		</Form>
 	)

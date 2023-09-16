@@ -2,7 +2,7 @@ import { Document, Types } from "mongoose"
 
 export type LoginField = "email" | "password"
 
-export type UserType = "refugee" | "supporter"
+export type UserType = "refugee" | "supporter" | "admin"
 
 /**This type is used for the types of a comment*/
 export interface User {

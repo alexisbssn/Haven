@@ -6,13 +6,12 @@ import * as z from "zod"
 import EmailFormField from "./EmailFormField/EmailFormField"
 import PasswordFormField from "./PasswordFormField/PasswordFormField"
 import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
 
 /**
  * This is the form that you see to login
  */
 export default function LoginForm() {
-	const [client, setIsClient] = useState(false)
-
 	const userLoginSchema = z.object({
 		email: z.string().min(2).email({ message: "Invalid email address" }),
 		password: z
@@ -33,28 +32,37 @@ export default function LoginForm() {
 		formState: { errors },
 	} = form
 
-	function onSubmit() {}
+	function onSubmit(data: z.infer<typeof userLoginSchema>) {
+		console.log('you managed to run the data')
+		console.log(data)
+	}
 
-	useEffect(() => {
-		setIsClient(true)
-	}, [])
+	async function  exampleSendingInfo() {
+		await fetch("/api/loginUser",{
+			method: "POST",
+			body: JSON.stringify({})
+
+		})
+
+
+	}
+
 
 	return (
-		client && (
-			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)}>
-					<EmailFormField
-						error={errors.email}
-						control={form}
-						name="email"
-					/>
-					<PasswordFormField
-						error={errors.password}
-						control={form}
-						name="password"
-					/>
-				</form>
-			</Form>
-		)
+		<Form {...form} >
+			<form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
+				<EmailFormField
+					error={errors.email}
+					control={form}
+					name="email"
+				/>
+				<PasswordFormField
+					error={errors.password}
+					control={form}
+					name="password"
+				/>
+				<Button className="mt-4 bg-lady_of_the_night">Login</Button>
+			</form>
+		</Form>
 	)
 }

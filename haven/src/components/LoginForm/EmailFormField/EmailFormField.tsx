@@ -19,7 +19,7 @@ export default function EmailFormField({ name, error, control }: Props) {
 			control={control.control}
 			render={({ field }) => (
 				<FormItem>
-					<FormLabel>Email adress</FormLabel>
+					<FormLabel className="text-base font-normal">Email adress</FormLabel>
 					<FormControl>
 						<Input {...field} />
 					</FormControl>

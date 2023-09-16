@@ -19,9 +19,9 @@ export default function PasswordFormField({ name, error, control }: Props) {
 			control={control.control}
 			render={({ field }) => (
 				<FormItem>
-					<FormLabel>Email adress</FormLabel>
+					<FormLabel className="text-base font-normal">Password</FormLabel>
 					<FormControl>
-						<Input {...field} />
+						<Input {...field} type="password"/>
 					</FormControl>
 				</FormItem>
 			)}

@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
 import "./globals.css"
-import type { Metadata } from "next"
+import { ReactNode } from "react"
 import ReduxProvider from "@/providers/ReduxProvider"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
 	title: "Haven | Login",

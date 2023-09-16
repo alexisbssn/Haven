@@ -1,0 +1,1 @@
+type LoginField = "email" | "password"

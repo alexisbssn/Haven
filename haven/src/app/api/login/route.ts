@@ -14,8 +14,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
   }
-  let validateData: {
-    email: string
+  let validateData: {   
     password: string
   }
 
@@ -36,16 +35,17 @@ export async function POST(request: NextRequest) {
   try {
     await dbConnect()
     user = await UserModel.findOne({ email })
+    console.log("this is the user you just entered", user)
     if (!user) {
+      console.log('this should run because the uesr was null')
       return NextResponse.json({ message: "User not found" }, { status: 404 })
+    } else {
+      if (password !== user.password) {
+        return NextResponse.json({message: "Incorrect password"}, {status: 400})
+      }
     }
-    if (password !== user.password) {
-      return NextResponse.json({message: "Incorrect password"}, {status: 400})
-    }
-    
   } catch (error) {
     console.log("something went wrong fetching the data from the database", error)
   }
-
   return NextResponse.json({ message: requestUser }, { status: 200 })
 }

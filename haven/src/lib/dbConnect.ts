@@ -1,8 +1,6 @@
 import mongoose from "mongoose"
 
-import { OfferModel } from "@/models/Offer"
-import { RequestModel } from "@/models/Request"
-import { UserModel } from "@/models/User"
+
 
 declare global {
   var mongoose: any // This must be a `var` and not a `let / const`
@@ -30,7 +28,7 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
     }
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGODB_URI, opts as mongoose.ConnectOptions).then((mongoose) => {
       return mongoose
     })
   }
@@ -38,7 +36,7 @@ async function dbConnect() {
     cached.conn = await cached.promise
     console.log("Connected to MongoDB")
   } catch (e) {
-    console.log("Error connecting to MongoDB")
+    console.log("Error connecting to MongoDB", e)
     cached.promise = null
     throw e
   }

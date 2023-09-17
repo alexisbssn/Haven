@@ -28,7 +28,7 @@ export default function LoginForm() {
   const form = useForm<z.infer<typeof userLoginSchema>>({
     resolver: zodResolver(userLoginSchema),
     defaultValues: {
-      email: "rami.batnigi@gmail.com",
+      email: "rami.batniwefwefgi@gmail.com",
       password: "rami1995",
     },
   })
@@ -54,20 +54,21 @@ export default function LoginForm() {
       })
       if (!res.ok) {
         toast({
-          title: "Something went wrong",
+          title: "Your Email or Password was incorrect",
+          variant: "destructive"
         })
         throw new Error("something went wrong sending the data from the front-end")
+      } else {
+        const data = await res.json()
+        console.log(data)
+        toast({
+          title: "welcome!",
+        })
+        router.push("/dashboard")
       }
-      const data = await res.json()
-      console.log(data)
-      router.push("/dashboard")
     } catch (error) {
       console.log("something went wrong sending the data from the front-end", error)
     }
-    toast({
-      title: "welcome!",
-    })
-    router.push("/dashboard")
   }
 
   return (

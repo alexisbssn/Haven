@@ -1,10 +1,7 @@
 import { cn } from "@/lib/utils"
-import Image from "next/image"
 import Link from "next/link"
-import house from "@/assets/svg/house.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import { usePathname } from "next/navigation"
 
 type Props = {
   href: string

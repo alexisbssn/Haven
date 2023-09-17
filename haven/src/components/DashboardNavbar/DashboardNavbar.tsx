@@ -1,3 +1,4 @@
+import Searchbar from "./Searchbar/Searchbar";
 
 
 
@@ -11,9 +12,10 @@
  */
 export default function DashboardNavbar() {
   return (
-    <nav>
-      
-      test
+    <nav className="flex relative p-4">
+      <Searchbar/>
+
+      <span className="ml-auto">test</span>
     </nav>
   )
 }

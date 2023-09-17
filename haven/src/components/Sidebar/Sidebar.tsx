@@ -1,6 +1,6 @@
 import { findHavenWebsiteUrl } from "@/lib/constants"
 import AdminSidebarBtnGroup from "./AdminSidebarBtnGroup/AdminSidebarBtnGroup"
-import havenLogo from "@/assets/haven-logo.png"
+import havenLogo from "@/assets/png/haven-logo.png"
 import Image from "next/image"
 import Link from "next/link"
 import PermanentSidebarBtnGroup from "./PermanentSidebarBtnGroup/PermanentSidebarBtnGroup"

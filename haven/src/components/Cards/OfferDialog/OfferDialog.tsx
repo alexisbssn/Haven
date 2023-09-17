@@ -2,17 +2,13 @@ import { Offer } from "@/dbTypes"
 import * as React from "react"
 import Image from "next/image"
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+
+
 
 type Props = {
   offer: Offer
@@ -32,14 +28,14 @@ export default function OfferDialog({ offer }: Props) {
         <AlertDialogDescription>{offer.creator.city}</AlertDialogDescription>
         {/* request section */}
         <div>
-          <div>{offer.creator.firstName}'s offer</div>
+          <div>{`${offer.creator.firstName}'s offer`}</div>
           <div>Posted on {offer.createdAt.toDateString()}</div>
           <div className="bold">{offer.type && offer.type.description}</div>
           <div>{offer.description}</div>
         </div>
         {/* story section */}
         <div>
-          <div>Read {offer.creator.firstName}'s story</div>
+          <div>{`Read ${offer.creator.firstName}'s story`}</div>
           <div>{offer.creator.myStory}</div>
         </div>
         {/* more details reusable component */}

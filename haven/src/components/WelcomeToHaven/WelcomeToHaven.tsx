@@ -1,5 +1,5 @@
 import Image from "next/image"
-import havenLogo from "@/assets/haven-logo.png"
+import havenLogo from "@/assets/png/haven-logo.png"
 
 /**
  * This is the component that displays "Welcome to Haven!" and it has the logo above it. It is displayed in both the login page and the signup page

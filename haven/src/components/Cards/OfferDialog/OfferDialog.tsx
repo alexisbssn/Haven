@@ -31,10 +31,6 @@ export default function OfferDialog({ offer }: Props) {
         </AlertDialogTitle>
         <AlertDialogDescription>{offer.creator.city}</AlertDialogDescription>
       </AlertDialogHeader>
-      <AlertDialogFooter>
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction>Continue</AlertDialogAction>
-      </AlertDialogFooter>
     </AlertDialogContent>
   )
 }

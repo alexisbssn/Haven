@@ -17,10 +17,14 @@ import { Label } from "@/components/ui/label"
 import ProfileCard from "../ProfileCard/ProfileCard"
 import OfferDialog from "../OfferDialog/OfferDialog"
 
+type Props = {
+  offer: Offer
+}
+
 export default function OfferCard({ offer }: Props) {
   return (
     <div className="m-3">
-      <Card className="w-[350px]" onClick={() => setShowingDialog(true)}>
+      <Card className="w-[350px]">
         <CardHeader>
           <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
 

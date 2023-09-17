@@ -1,3 +1,5 @@
+"use client"
+
 import { Offer } from "@/dbTypes"
 import * as React from "react"
 import Image from "next/image"
@@ -17,13 +19,11 @@ type Props = {
   offer: Offer
 }
 
-/**
- * This is the field to enter the email adress
- */
 export default function OfferCard({ offer }: Props) {
+  const [showingDialog, setShowingDialog] = React.useState(false)
   return (
     <div className="m-3">
-      <Card className="w-[350px]">
+      <Card className="w-[350px]" onClick={() => setShowingDialog(true)}>
         <CardHeader>
           <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
 
@@ -33,10 +33,7 @@ export default function OfferCard({ offer }: Props) {
           <CardDescription>{offer.creator.city}</CardDescription>
         </CardHeader>
         <CardContent>card content</CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Share button</Button>
-          <Button>Help button</Button>
-        </CardFooter>
+        <CardFooter className="flex justify-between"></CardFooter>
       </Card>
     </div>
   )

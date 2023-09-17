@@ -7,7 +7,7 @@ export default async function getAllUsers(): Promise<User[]> {
   try {
     await dbConnect()
 
-    const users = await UserModel.find({}).exec()
+    const users = (await UserModel.find({}).exec()) as User[]
     return users
   } catch (error) {
     console.log("there was an error fetching all product requests", error)

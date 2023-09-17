@@ -23,23 +23,18 @@ type Props = {
  */
 export default function OfferDialog({ offer }: Props) {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
-          <AlertDialogTitle>
-            {offer.creator.firstName} {offer.creator.lastName.slice(0, 1)}.
-          </AlertDialogTitle>
-          <AlertDialogDescription>{offer.creator.city}</AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
+        <AlertDialogTitle>
+          {offer.creator.firstName} {offer.creator.lastName.slice(0, 1)}.
+        </AlertDialogTitle>
+        <AlertDialogDescription>{offer.creator.city}</AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogAction>Continue</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
   )
 }

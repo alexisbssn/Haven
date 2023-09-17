@@ -1,5 +1,7 @@
 import OfferCard from "@/components/Cards/OfferCard/OfferCard"
+import OfferDialog from "@/components/Cards/OfferDialog/OfferDialog"
 import ProfileCard from "@/components/Cards/ProfileCard/ProfileCard"
+import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import getAllOffers from "@/lib/db/offerStore"
 import getAllUsers from "@/lib/db/userStore"
 
@@ -12,7 +14,12 @@ export default async function Page() {
       <div>Offers:</div>
       <div>
         {offers.map((offer) => (
-          <OfferCard key={offer._id} offer={offer} />
+          <AlertDialog key={offer._id}>
+            <OfferDialog offer={offer} />
+            <AlertDialogTrigger>
+              <OfferCard offer={offer} />
+            </AlertDialogTrigger>
+          </AlertDialog>
         ))}
       </div>
 

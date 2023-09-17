@@ -14,13 +14,10 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
-type Props = {
-  offer: Offer
-}
+import ProfileCard from "../ProfileCard/ProfileCard"
+import OfferDialog from "../OfferDialog/OfferDialog"
 
 export default function OfferCard({ offer }: Props) {
-  const [showingDialog, setShowingDialog] = React.useState(false)
   return (
     <div className="m-3">
       <Card className="w-[350px]" onClick={() => setShowingDialog(true)}>

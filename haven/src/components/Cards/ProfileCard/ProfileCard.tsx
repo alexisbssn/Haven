@@ -1,4 +1,4 @@
-import { Offer } from "@/dbTypes"
+import { Offer, User } from "@/dbTypes"
 import * as React from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -14,25 +14,25 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 type Props = {
-  offer: Offer
+  user: User
 }
 
 /**
  * This is the field to enter the email adress
  */
-export default function OfferCard({ offer }: Props) {
+export default function ProfileCard({ user }: Props) {
   return (
     <div>
       <Card className="w-[350px]">
         <CardHeader>
-          <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
+          {/* <Image src={user.pictureUrl} alt="offer image" width={230} height={230}></Image> */}
 
           <CardTitle>
-            {offer.creator.firstName} {offer.creator.lastName.slice(0, 1)}.
+            {user.firstName} {user.lastName.slice(0, 1)}.
           </CardTitle>
-          <CardDescription>{offer.creator.city}</CardDescription>
+          <CardDescription>{user.city}</CardDescription>
         </CardHeader>
-        <CardContent>card content</CardContent>
+        <CardContent>{user.password}</CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline">Share button</Button>
           <Button>Help button</Button>

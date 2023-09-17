@@ -1,6 +1,6 @@
 import { RadioGroup } from "@/components/ui/radio-group"
 import AccountTypeFormRadioItem from "./AccountTypeFormRadioItem/AccountTypeFormRadioItem"
-import { UserType } from "@/types"
+import { UserType } from "@/dbTypes"
 
 type Props = {
   defaultValue: UserType

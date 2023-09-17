@@ -1,4 +1,4 @@
-import { RequestType } from "@/types"
+import { RequestType } from "@/dbTypes"
 import mongoose, { Schema } from "mongoose"
 
 const requestTypeSchema = new Schema<RequestType>({

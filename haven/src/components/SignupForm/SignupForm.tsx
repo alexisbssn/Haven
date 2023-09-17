@@ -10,7 +10,7 @@ import LastNameFormField from "../FormComponents/LastNameFormField/LastNameFormF
 import PasswordFormField from "../FormComponents/PasswordFormField/PasswordFormField"
 import AccountTypeFormRadioGroup from "../FormComponents/AccountTypeFormRadioGroup/AccountTypeFormRadioGroup"
 import FormBtn from "../FormComponents/FormBtn/FormBtn"
-import { SignupUser } from "@/types"
+import { SignupUser } from "@/dbTypes"
 
 export default function SignupForm() {
   const router = useRouter()

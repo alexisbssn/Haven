@@ -1,15 +1,14 @@
 import { OfferModel } from "@/models/Offer"
-import { Offer } from "@/dbTypes"
+import { User } from "@/dbTypes"
 import dbConnect from "@/lib/dbConnect"
 import { UserModel } from "@/models/User"
-UserModel
 
-export default async function getAllOffers(): Promise<Offer[]> {
+export default async function getAllUsers(): Promise<User[]> {
   try {
     await dbConnect()
 
-    const offers = await OfferModel.find({}).populate("creator").exec()
-    return offers
+    const users = await UserModel.find({}).exec()
+    return users
   } catch (error) {
     console.log("there was an error fetching all product requests", error)
   }

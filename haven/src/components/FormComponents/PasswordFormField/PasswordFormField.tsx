@@ -3,7 +3,7 @@
 import { FieldError } from "react-hook-form"
 import { FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { LoginField, SignupField } from "@/types"
+import { LoginField, SignupField } from "@/dbTypes"
 import { Button } from "@/components/ui/button"
 
 type Props = {

@@ -1,4 +1,4 @@
-import { OfferType } from "@/types"
+import { OfferType } from "@/dbTypes"
 import mongoose, { Schema } from "mongoose"
 
 const offerTypeSchema = new Schema<OfferType>({

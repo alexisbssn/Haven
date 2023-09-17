@@ -1,4 +1,4 @@
-import { Conversation } from "@/types"
+import { Conversation } from "@/dbTypes"
 import mongoose, { Schema } from "mongoose"
 
 const conversationSchema = new Schema<Conversation>({

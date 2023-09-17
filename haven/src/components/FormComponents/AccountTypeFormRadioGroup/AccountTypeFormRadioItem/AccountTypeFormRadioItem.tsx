@@ -1,6 +1,6 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroupItem } from "@/components/ui/radio-group"
-import { UserType } from "@/types"
+import { UserType } from "@/dbTypes"
 
 type Props = {
   value: UserType

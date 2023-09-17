@@ -1,4 +1,4 @@
-import { Match } from "@/types"
+import { Match } from "@/dbTypes"
 import mongoose, { Schema } from "mongoose"
 
 const matchSchema = new Schema<Match>({

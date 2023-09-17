@@ -119,7 +119,9 @@ export interface User extends Collection {
   password: string
 }
 
-export interface DbUser extends DocumentCollection {}
+export interface DbUser extends DocumentCollection, User {
+  _id: string
+}
 
 export interface RequestType extends Collection {
   needsAdvancedVerification: boolean

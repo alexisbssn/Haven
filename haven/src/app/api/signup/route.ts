@@ -1,10 +1,10 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 import { ZodError } from "zod"
-import connectMongoose from "@/lib/dbConnect"
 import { UserModel } from "@/models/User"
 import { signupValidator } from "@/validators/signupValidator"
 import { DbUser, User, UserType } from "@/dbTypes"
+import dbConnect from "@/lib/dbConnect"
 
 export async function POST(request: NextRequest) {
   let requestUser: User
@@ -13,6 +13,8 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
   }
+
+
 
   let validateData: {
     email: string
@@ -33,15 +35,16 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const { email, firstName, lastName, type } = requestUser
+  const { email, firstName, lastName, type, password } = requestUser
 
   try {
-    await connectMongoose()
+    await dbConnect()
     const user: DbUser = new UserModel({
       email,
       firstName,
       lastName,
       type,
+			password
     })
     await user.save()
     return NextResponse.json({ message: "success" }, { status: 200 })

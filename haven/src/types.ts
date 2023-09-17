@@ -12,3 +12,8 @@ export type SignupUser = {
   type: UserType
   password: string
 }
+
+export type loginUser = {
+  email: string
+  password: string
+}

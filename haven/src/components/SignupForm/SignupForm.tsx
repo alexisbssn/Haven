@@ -10,10 +10,12 @@ import LastNameFormField from "../FormComponents/LastNameFormField/LastNameFormF
 import PasswordFormField from "../FormComponents/PasswordFormField/PasswordFormField"
 import AccountTypeFormRadioGroup from "../FormComponents/AccountTypeFormRadioGroup/AccountTypeFormRadioGroup"
 import FormBtn from "../FormComponents/FormBtn/FormBtn"
-import { SignupUser } from "@/dbTypes"
+import { SignupUser } from "@/types"
+import { useToast } from "../ui/use-toast"
 
 export default function SignupForm() {
   const router = useRouter()
+  const { toast } = useToast()
   const userSignupSchema = z
     .object({
       accountType: z.enum(["refugee", "supporter", "admin"]),
@@ -36,11 +38,11 @@ export default function SignupForm() {
     resolver: zodResolver(userSignupSchema),
     defaultValues: {
       accountType: "supporter",
-      confirmEmail: "rami.batnigi@gmail.com",
-      email: "rami.batnigi@gmail.com",
-      firstName: "Rami",
-      lastName: "Elbatnigi",
-      password: "rami1995",
+      confirmEmail: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      password: "",
     },
   })
 
@@ -65,6 +67,16 @@ export default function SignupForm() {
         },
         body: JSON.stringify(user),
       })
+      if (!res.ok) {
+        throw new Error("something went wrong sending the data from the front-end")
+      }
+      const data = await res.json()
+      router.push("/")
+			toast({
+				title: "Account created",
+				description: "You successfully created your account!",
+			})
+      console.log(data)
     } catch (error) {
       console.log("something went wrong sending the data from the front-end", error)
     }

@@ -22,7 +22,7 @@ type Props = {
  */
 export default function OfferCard({ offer }: Props) {
   return (
-    <div>
+    <div className="m-3">
       <Card className="w-[350px]">
         <CardHeader>
           <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>

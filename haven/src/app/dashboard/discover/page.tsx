@@ -8,7 +8,7 @@ export default async function Page() {
   const users = await getAllUsers()
 
   return (
-    <div>
+    <div className="overflow-scroll">
       <div>Offers:</div>
       <div>
         {offers.map((offer) => (
@@ -17,7 +17,7 @@ export default async function Page() {
       </div>
 
       <div>Users:</div>
-      <div>
+      <div className="flex w-fit flex-wrap">
         {users.map((user) => (
           <ProfileCard key={user._id} user={user} />
         ))}

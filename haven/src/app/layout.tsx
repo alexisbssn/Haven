@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <ReduxProvider>
-        <body className="relative flex">{children}</body>
+        <body className="relative flex h-screen">{children}</body>
       </ReduxProvider>
     </html>
   )

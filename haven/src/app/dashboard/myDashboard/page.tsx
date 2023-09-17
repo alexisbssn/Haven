@@ -1,5 +1,3 @@
-"use client"
-
 import CreateOfferForm from "./CreateOfferForm"
 
 export default function Page() {

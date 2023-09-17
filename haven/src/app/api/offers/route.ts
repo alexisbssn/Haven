@@ -6,11 +6,13 @@ import { signupValidator } from "@/validators/signupValidator"
 import { DbOffer, OfferCategory, Offer, User } from "@/dbTypes"
 import dbConnect from "@/lib/dbConnect"
 import { offerValidator } from "@/validators/offerValidator"
+import { Types } from "mongoose"
 
 export async function POST(request: NextRequest) {
-  let requestOffer: Offer
+  let requestOffer
   try {
     requestOffer = await request.json()
+    requestOffer.availabilityDate = new Date(requestOffer.availabilityDate)
   } catch (error) {
     return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
   }
@@ -38,7 +40,9 @@ export async function POST(request: NextRequest) {
 
   try {
     await dbConnect()
+
     const offer: DbOffer = new OfferModel({
+      _id: new Types.ObjectId(),
       description,
       type,
       creator,
@@ -48,6 +52,7 @@ export async function POST(request: NextRequest) {
       order: 1,
       createdAt: new Date(),
     })
+
     await offer.save()
     return NextResponse.json({ message: "success" }, { status: 200 })
   } catch (error) {

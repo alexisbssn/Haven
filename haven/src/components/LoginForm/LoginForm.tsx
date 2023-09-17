@@ -62,7 +62,7 @@ export default function LoginForm() {
         toast({
           title: "welcome!",
         })
-        router.push("/dashboard")
+        router.push("/dashboard/discover")
       }
     } catch (error) {
       console.log("something went wrong sending the data from the front-end", error)

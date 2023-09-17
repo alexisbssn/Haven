@@ -14,11 +14,13 @@ export async function POST(request: NextRequest) {
 		return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
 	}
 
+
 	let validateData: {
 		email: string
 		firstName: string
 		lastName: string
 		type: UserType
+		password: string
 	}
 
 	try {
@@ -41,6 +43,7 @@ export async function POST(request: NextRequest) {
 			firstName,
 			lastName,
 			type,
+
 		})
 		await user.save()
 		return NextResponse.json({ message: "success" }, { status: 200 })

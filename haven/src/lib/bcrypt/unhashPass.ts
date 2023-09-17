@@ -1,5 +1,4 @@
-import bcrypt from "bcrypt"
 
-export default function unhashPass(unhashedPassword: string, hashedPassword: string): Promise<boolean> {
-	return bcrypt.compare(unhashedPassword, hashedPassword).then((result) => result)
+export default async function unhashPass(unhashedPassword: string, hashedPassword: string): Promise<boolean> {
+	return Bun.password.verify(unhashedPassword, hashedPassword)
 }

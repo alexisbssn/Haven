@@ -8,12 +8,10 @@
     "@radix-ui/react-select": "^1.2.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@reduxjs/toolkit": "^1.9.5",
-    "@types/bcrypt": "^5.0.0",
     "@types/node": "20.6.2",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "eslint": "8.49.0",
@@ -46,5 +44,8 @@
     "docker:devDown": "cd .. && ./development.down.sh",
     "docker:buildUp:rebuild": "cd .. && ./production.rebuild.sh",
     "docker:buildDown": "cd .. && ./production.down.sh"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.2"
   }
 }

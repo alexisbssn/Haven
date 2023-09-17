@@ -1,5 +1,7 @@
-import bcrypt from "bcrypt"
 
-export default function hashpass(unhashedPassword: string): Promise<string> {
-	return bcrypt.hash(unhashedPassword, 10).then((hash) => hash)
+export default async function hashpass(unhashedPassword: string): Promise<string> {
+    return Bun.password.hash(unhashedPassword, {
+        algorithm: "bcrypt",
+        cost: 10
+    })
 }

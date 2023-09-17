@@ -1,5 +1,4 @@
 "use client"
-
 import { Form } from "../ui/form"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
@@ -50,7 +49,8 @@ export default function SignupForm() {
 	} = form
 
 	async function onSubmit(data: z.infer<typeof userSignupSchema>) {
-		console.log('that ran')
+
+
 		const { accountType, firstName, lastName, password, email } = data
 		const user: SignupUser = {
 			email,
@@ -67,7 +67,6 @@ export default function SignupForm() {
 				},
 				body: JSON.stringify(user),
 			})
-			console.log(res)
 		} catch (error) {
 			console.log('something went wrong sending the data from the front-end', error)
 		}

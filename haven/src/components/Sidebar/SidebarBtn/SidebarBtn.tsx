@@ -18,7 +18,6 @@ type Props = {
  * This is the button that you see in the sidebar when it is expanded
  */
 export default function SidebarBtn({ href, text, className, icon, pathName }: Props) {
-  console.log(pathName === href)
   return (
     <Link
       href={href}

@@ -10,7 +10,6 @@ export async function POST(request: NextRequest) {
   let requestUser: loginUser
   try {
     requestUser = await request.json()
-    console.log(requestUser)
   } catch (error) {
     return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
   }

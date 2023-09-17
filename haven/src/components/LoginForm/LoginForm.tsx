@@ -38,7 +38,6 @@ export default function LoginForm() {
   } = form
 
   async function onSubmit(data: z.infer<typeof userLoginSchema>) {
-    console.log("the data was good")
     const { email, password } = data
     const user: loginUser = {
       email,
@@ -60,7 +59,6 @@ export default function LoginForm() {
         throw new Error("something went wrong sending the data from the front-end")
       } else {
         const data = await res.json()
-        console.log(data)
         toast({
           title: "welcome!",
         })

@@ -100,10 +100,6 @@ interface Collection {
   updatedAt: Date
 }
 
-interface DocumentCollection extends Document {
-  _id: string
-}
-
 export interface User extends Collection {
   email: string
   firstName: string
@@ -119,7 +115,7 @@ export interface User extends Collection {
   password: string
 }
 
-export interface DbUser extends DocumentCollection, User {
+export interface DbUser extends Document, User {
   _id: string
 }
 
@@ -131,7 +127,9 @@ export interface RequestType extends Collection {
   description: string
 }
 
-export interface DbRequestType extends DocumentCollection {}
+export interface DbRequestType extends RequestType, Document {
+  _id: string
+}
 
 export interface OfferType extends Collection {
   needsAdvancedVerification: boolean
@@ -141,7 +139,9 @@ export interface OfferType extends Collection {
   description: string
 }
 
-export interface DbOfferType extends DocumentCollection {}
+export interface DbOfferType extends OfferType, Document {
+  _id: string
+}
 
 export interface Message extends Collection {
   conversation: Conversation
@@ -152,7 +152,9 @@ export interface Message extends Collection {
   seenBy: [User]
 }
 
-export interface DbMessage extends DocumentCollection {}
+export interface DbMessage extends Message, Document {
+  _id: string
+}
 
 export interface Conversation extends Collection {
   lastMessage: Message
@@ -160,7 +162,9 @@ export interface Conversation extends Collection {
   visibleBy: [User]
 }
 
-export interface DbConversation extends DocumentCollection {}
+export interface DbConversation extends Conversation, Document {
+  _id: string
+}
 
 export interface Match extends Collection {
   supporter: User
@@ -170,7 +174,9 @@ export interface Match extends Collection {
   offer: Offer
 }
 
-export interface DbMatch extends DocumentCollection {}
+export interface DbMatch extends Match, Document {
+  _id: string
+}
 
 export interface Request extends Collection {
   description: string
@@ -182,7 +188,9 @@ export interface Request extends Collection {
   pictureUrl: string
 }
 
-export interface DbRequest extends DocumentCollection {}
+export interface DbRequest extends Request, Document {
+  _id: string
+}
 
 export interface Offer extends Collection {
   description: string
@@ -192,4 +200,8 @@ export interface Offer extends Collection {
   availabilityDate: Date
   order: number
   pictureUrl: string
+}
+
+export interface DbOffer extends Offer, Document {
+  _id: string
 }

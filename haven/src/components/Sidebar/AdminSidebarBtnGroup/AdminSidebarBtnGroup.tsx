@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import SidebarBtn from "../SidebarBtn/SidebarBtn"
-import { faWrench, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faWrench, faUser, faGears } from "@fortawesome/free-solid-svg-icons"
 
 export default function AdminSidebarBtnGroup() {
   const pathname = usePathname()
@@ -11,6 +11,12 @@ export default function AdminSidebarBtnGroup() {
       <h3 className="text-white">Admin</h3>
       <SidebarBtn href="/dashboard/accounts" text="Accounts" icon={faWrench} pathName={pathname} />
       <SidebarBtn href="/dashboard/security" text="Security" icon={faUser} pathName={pathname} />
+      <SidebarBtn
+        href="/dashboard/admin-settings"
+        text="Admin settings"
+        icon={faGears}
+        pathName={pathname}
+      />
     </div>
   )
 }

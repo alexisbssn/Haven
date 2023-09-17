@@ -1,30 +1,30 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 import { ZodError } from "zod"
-import { OfferModel } from "@/models/Offer"
+import { OfferTypeModel } from "@/models/OfferType"
 import { signupValidator } from "@/validators/signupValidator"
-import { DbOffer, OfferCategory, Offer, User } from "@/dbTypes"
+import { DbOfferType, OfferCategory, OfferType } from "@/dbTypes"
 import dbConnect from "@/lib/dbConnect"
-import { offerValidator } from "@/validators/offerValidator"
+import { offerTypeValidator } from "@/validators/offerTypeValidator"
 
 export async function POST(request: NextRequest) {
-  let requestOffer: Offer
+  let requestOfferType: OfferType
   try {
-    requestOffer = await request.json()
+    requestOfferType = await request.json()
   } catch (error) {
     return NextResponse.json({ message: "failed to parse JSON object" }, { status: 400 })
   }
 
   let validateData: {
+    needsAdvancedVerification: boolean
+    category: OfferCategory
+    iconUrl: string
+    iconWithLabelUrl: string
     description: string
-    type: string
-    creator: string
-    availabilityDate: Date
-    pictureUrl: string
   }
 
   try {
-    validateData = offerValidator.parse(requestOffer)
+    validateData = offerTypeValidator.parse(requestOfferType)
   } catch (error) {
     const zodError = error as ZodError
     const errorMessage = zodError.errors.map((err) => err.message).join(", ")
@@ -34,24 +34,22 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const { description, type, creator, availabilityDate, pictureUrl } = requestOffer
+  const { needsAdvancedVerification, category, iconUrl, iconWithLabelUrl, description } =
+    requestOfferType
 
   try {
     await dbConnect()
-    const offer: DbOffer = new OfferModel({
+    const offerType: DbOfferType = new OfferTypeModel({
+      needsAdvancedVerification,
+      category,
+      iconUrl,
+      iconWithLabelUrl,
       description,
-      type,
-      creator,
-      availabilityDate,
-      pictureUrl,
-      status: "Open",
-      order: 1,
-      createdAt: new Date(),
     })
-    await offer.save()
+    await offerType.save()
     return NextResponse.json({ message: "success" }, { status: 200 })
   } catch (error) {
-    console.log("failed to create offer in the database.", error)
+    console.log("failed to create offerType in the database.", error)
     return NextResponse.error()
   }
 }

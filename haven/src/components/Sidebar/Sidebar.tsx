@@ -5,6 +5,9 @@ import Image from "next/image"
 import Link from "next/link"
 import PermanentSidebarBtnGroup from "./PermanentSidebarBtnGroup/PermanentSidebarBtnGroup"
 
+
+
+
 /**
  * This is the Sidebar
  */

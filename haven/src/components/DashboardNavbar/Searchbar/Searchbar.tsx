@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
  */
 export default function Searchbar() {
   return (
-    <div className="flex cursor-pointer rounded-xl border border-solid border-black p-3 items-center grow max-w-[640px]">
+    <div className="flex cursor-pointer rounded-xl border border-solid border-black p-3 items-center grow max-w-[640px] mr-5">
       <FontAwesomeIcon icon={faMagnifyingGlass} className="mr-4"/>
-      <span className="font-semibold text-base">Alberta</span>
+      <span className="font-semibold text-base">
+        
+      </span>
     </div>
   )
 }

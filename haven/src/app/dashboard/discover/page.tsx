@@ -14,7 +14,7 @@ export default async function Page() {
         offers.map((offer) => (
           <AlertDialog key={offer._id}>
             <OfferDialog offer={offer} />
-            <AlertDialogTrigger className="m-5 rounded-xl bg-white drop-shadow-lg hover:bg-slate-100">
+            <AlertDialogTrigger className="m-5 rounded-xl bg-white drop-shadow-lg hover:bg-slate-100 flex-wrap">
               <OfferCard offer={offer} />
             </AlertDialogTrigger>
           </AlertDialog>

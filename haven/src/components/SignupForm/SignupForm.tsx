@@ -72,10 +72,10 @@ export default function SignupForm() {
       }
       const data = await res.json()
       router.push("/")
-			toast({
-				title: "Account created",
-				description: "You successfully created your account!",
-			})
+      toast({
+        title: "Account created",
+        description: "You successfully created your account!",
+      })
       console.log(data)
     } catch (error) {
       console.log("something went wrong sending the data from the front-end", error)

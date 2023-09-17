@@ -1,5 +1,5 @@
-import { Request } from "@/types";
-import mongoose, { Schema } from "mongoose";
+import { Request } from "@/types"
+import mongoose, { Schema } from "mongoose"
 
 const requestSchema = new Schema<Request>({
   _id: String,
@@ -12,7 +12,7 @@ const requestSchema = new Schema<Request>({
   pictureUrl: String,
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
 export const RequestModel =
-  mongoose.models.Request || mongoose.model<Request>("Request", requestSchema);
+  mongoose.models.Request || mongoose.model<Request>("Request", requestSchema)

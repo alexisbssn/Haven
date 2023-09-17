@@ -8,6 +8,6 @@ const colors = {
   text_gray: "#999797",
   pastel_blue: "#4173A5",
   pastel_yellow: "#FFD153",
-};
+}
 
-export default colors;
+export default colors

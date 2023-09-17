@@ -1,5 +1,5 @@
-import { Match } from "@/types";
-import mongoose, { Schema } from "mongoose";
+import { Match } from "@/types"
+import mongoose, { Schema } from "mongoose"
 
 const matchSchema = new Schema<Match>({
   _id: String,
@@ -10,7 +10,6 @@ const matchSchema = new Schema<Match>({
   supporter: { type: Schema.Types.ObjectId, ref: "User" },
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
-export const MatchModel =
-  mongoose.models.Match || mongoose.model<Match>("Match", matchSchema);
+export const MatchModel = mongoose.models.Match || mongoose.model<Match>("Match", matchSchema)

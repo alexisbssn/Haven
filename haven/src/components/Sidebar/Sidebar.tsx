@@ -1,10 +1,6 @@
-
-
 /**
- * This is the Sidebar 
+ * This is the Sidebar
  */
 export default function Sidebar() {
-  return (
-    <section>Sidebar</section>
-  )
+  return <section>Sidebar</section>
 }

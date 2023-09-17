@@ -3,24 +3,18 @@ import AccountTypeFormRadioItem from "./AccountTypeFormRadioItem/AccountTypeForm
 import { UserType } from "@/types"
 
 type Props = {
-	defaultValue: UserType
+  defaultValue: UserType
 }
 
 /**
  * This is the radio group to select the account type when signing up
  */
 export default function AccountTypeFormRadioGroup({ defaultValue }: Props) {
-	return (
-		<RadioGroup defaultValue={defaultValue}>
-			Account Type
-			<AccountTypeFormRadioItem
-				value="supporter"
-				labelValue="Supporter"
-			/>
-			<AccountTypeFormRadioItem
-				value="refugee"
-				labelValue="Refugee"
-			/>
-		</RadioGroup>
-	)
+  return (
+    <RadioGroup defaultValue={defaultValue}>
+      Account Type
+      <AccountTypeFormRadioItem value="supporter" labelValue="Supporter" />
+      <AccountTypeFormRadioItem value="refugee" labelValue="Refugee" />
+    </RadioGroup>
+  )
 }

@@ -1,7 +1,7 @@
-import havenLogo from "@/assets/haven-logo.png";
-import { findHavenWebsiteUrl } from "@/lib/constants";
-import Image from "next/image";
-import Link from "next/link";
+import havenLogo from "@/assets/haven-logo.png"
+import { findHavenWebsiteUrl } from "@/lib/constants"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,5 +15,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {children}
     </div>
-  );
+  )
 }

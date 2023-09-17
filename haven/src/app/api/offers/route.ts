@@ -5,4 +5,3 @@ import { ZodError } from "zod"
 import connectMongoose from "@/lib/dbConnect"
 import { UserModel } from "@/models/User"
 import { signupValidator } from "@/validators/signupValidator"
-

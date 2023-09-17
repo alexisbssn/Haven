@@ -1,5 +1,5 @@
-import { User } from "@/dbTypes";
-import mongoose, { Schema } from "mongoose";
+import { User } from "@/dbTypes"
+import mongoose, { Schema } from "mongoose"
 
 // email: string;
 //   firstName: string;
@@ -28,13 +28,13 @@ const userSchema = new Schema<User>(
     type: String,
     password: String,
   },
-  { discriminatorKey: "type" }
-);
+  { discriminatorKey: "type" },
+)
 
 if (!mongoose.models.User) {
-  mongoose.models.User = mongoose.model<User>("User", userSchema);
+  mongoose.models.User = mongoose.model<User>("User", userSchema)
 }
-export const UserModel = mongoose.models.User;
+export const UserModel = mongoose.models.User
 
 const refugeeSchema = new Schema<User>({
   email: String,
@@ -47,13 +47,13 @@ const refugeeSchema = new Schema<User>({
   whatsapp: Boolean,
   myStory: String,
   languages: [String],
-});
+})
 
 if (!mongoose.models.Refugee) {
-  mongoose.models.Refugee = UserModel.discriminator("refugee", refugeeSchema);
+  mongoose.models.Refugee = UserModel.discriminator("refugee", refugeeSchema)
 }
 
-export const RefugeeModel = mongoose.models.Refugee;
+export const RefugeeModel = mongoose.models.Refugee
 
 const supporterSchema = new Schema<User>({
   email: String,
@@ -66,15 +66,12 @@ const supporterSchema = new Schema<User>({
   whatsapp: Boolean,
   myStory: String,
   languages: [String],
-});
+})
 
 if (!mongoose.models.supporter) {
-  mongoose.models.supporter = UserModel.discriminator(
-    "supporter",
-    supporterSchema
-  );
+  mongoose.models.supporter = UserModel.discriminator("supporter", supporterSchema)
 }
-export const SupporterModel = mongoose.models.supporter;
+export const SupporterModel = mongoose.models.supporter
 
 const adminSchema = new Schema<User>({
   email: String,
@@ -87,9 +84,9 @@ const adminSchema = new Schema<User>({
   whatsapp: Boolean,
   myStory: String,
   languages: [String],
-});
+})
 
 if (!mongoose.models.Admin) {
-  mongoose.models.Admin = UserModel.discriminator("admin", adminSchema);
+  mongoose.models.Admin = UserModel.discriminator("admin", adminSchema)
 }
-export const AdminModel = mongoose.models.Admin;
+export const AdminModel = mongoose.models.Admin

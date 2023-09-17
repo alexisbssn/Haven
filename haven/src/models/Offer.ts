@@ -1,5 +1,5 @@
-import { Offer } from "@/types";
-import mongoose, { Schema } from "mongoose";
+import { Offer } from "@/types"
+import mongoose, { Schema } from "mongoose"
 
 const offerSchema = new Schema<Offer>({
   _id: String,
@@ -12,7 +12,6 @@ const offerSchema = new Schema<Offer>({
   pictureUrl: String,
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
-export const OfferModel =
-  mongoose.models.Offer || mongoose.model<Offer>("Offer", offerSchema);
+export const OfferModel = mongoose.models.Offer || mongoose.model<Offer>("Offer", offerSchema)

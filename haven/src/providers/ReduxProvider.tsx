@@ -5,10 +5,9 @@ import { setupStore } from "@/store/store"
 import React from "react"
 
 type Props = {
-	children: React.ReactNode
+  children: React.ReactNode
 }
 
-
 export default function ReduxProvider({ children }: Props) {
-	return <Provider store={setupStore()}>{children}</Provider>
+  return <Provider store={setupStore()}>{children}</Provider>
 }

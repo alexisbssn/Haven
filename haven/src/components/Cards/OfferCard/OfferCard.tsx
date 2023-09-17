@@ -1,7 +1,7 @@
-import { Offer } from "@/types";
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Offer } from "@/types"
+import * as React from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -9,13 +9,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 type Props = {
-  offer: Offer;
-};
+  offer: Offer
+}
 
 /**
  * This is the field to enter the email adress
@@ -25,12 +25,7 @@ export default function OfferCard({ offer }: Props) {
     <div>
       <Card className="w-[350px]">
         <CardHeader>
-          <Image
-            src={offer.pictureUrl}
-            alt="offer image"
-            width={230}
-            height={230}
-          ></Image>
+          <Image src={offer.pictureUrl} alt="offer image" width={230} height={230}></Image>
 
           <CardTitle>
             {offer.creator.firstName} {offer.creator.lastName.slice(0, 1)}.
@@ -44,5 +39,5 @@ export default function OfferCard({ offer }: Props) {
         </CardFooter>
       </Card>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { Message } from "postcss";
-import mongoose, { Schema } from "mongoose";
+import { Message } from "postcss"
+import mongoose, { Schema } from "mongoose"
 
 const messageSchema = new Schema<Message>({
   _id: String,
@@ -11,7 +11,7 @@ const messageSchema = new Schema<Message>({
   seenBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
 export const MessageModel =
-  mongoose.models.Message || mongoose.model<Message>("Message", messageSchema);
+  mongoose.models.Message || mongoose.model<Message>("Message", messageSchema)

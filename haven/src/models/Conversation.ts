@@ -1,5 +1,5 @@
-import { Conversation } from "@/types";
-import mongoose, { Schema } from "mongoose";
+import { Conversation } from "@/types"
+import mongoose, { Schema } from "mongoose"
 
 const conversationSchema = new Schema<Conversation>({
   _id: String,
@@ -8,8 +8,7 @@ const conversationSchema = new Schema<Conversation>({
   visibleBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
 export const ConversationModel =
-  mongoose.models.Conversation ||
-  mongoose.model<Conversation>("Conversation", conversationSchema);
+  mongoose.models.Conversation || mongoose.model<Conversation>("Conversation", conversationSchema)

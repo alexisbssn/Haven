@@ -1,5 +1,5 @@
-import { RequestType } from "@/types";
-import mongoose, { Schema } from "mongoose";
+import { RequestType } from "@/types"
+import mongoose, { Schema } from "mongoose"
 
 const requestTypeSchema = new Schema<RequestType>({
   needsAdvancedVerification: Boolean,
@@ -9,8 +9,7 @@ const requestTypeSchema = new Schema<RequestType>({
   description: String,
   createdAt: Date,
   updatedAt: Date,
-});
+})
 
 export const RequestTypeModel =
-  mongoose.models.RequestType ||
-  mongoose.model<RequestType>("RequestType", requestTypeSchema);
+  mongoose.models.RequestType || mongoose.model<RequestType>("RequestType", requestTypeSchema)

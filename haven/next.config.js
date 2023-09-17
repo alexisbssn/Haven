@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
   //the following are recommended for Next and Mongoose to work together, but cause build issues.
-
   // experimental: {
   //   esmExternals: "loose",
   //   serverComponentsExternalPackages: ["mongoose"]

@@ -1,10 +1,10 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
-import { DbUser, User, UserType } from "@/types"
 import { ZodError } from "zod"
 import connectMongoose from "@/lib/dbConnect"
 import { UserModel } from "@/models/User"
 import { signupValidator } from "@/validators/signupValidator"
+import { DbUser, User, UserType } from "@/dbTypes"
 
 export async function POST(request: NextRequest) {
 	let requestUser: User
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 			{ status: 400 }
 		)
 	}
-
+	
 	const { email, firstName, lastName, type } = requestUser
 
 	try {

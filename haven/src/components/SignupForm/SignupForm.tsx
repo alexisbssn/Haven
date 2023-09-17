@@ -11,7 +11,7 @@ import LastNameFormField from "../FormComponents/LastNameFormField/LastNameFormF
 import PasswordFormField from "../FormComponents/PasswordFormField/PasswordFormField"
 import AccountTypeFormRadioGroup from "../FormComponents/AccountTypeFormRadioGroup/AccountTypeFormRadioGroup"
 import FormBtn from "../FormComponents/FormBtn/FormBtn"
-import hashpass from "@/lib/bcrypt/hashPass"
+import { SignupUser } from "@/types"
 
 export default function SignupForm() {
 	const router = useRouter()
@@ -50,11 +50,27 @@ export default function SignupForm() {
 	} = form
 
 	async function onSubmit(data: z.infer<typeof userSignupSchema>) {
-		//Will send the data to an API at this stage
-		const hashedPassword = await hashpass(data.password)
-		
-
-		console.log(hashedPassword)
+		console.log('that ran')
+		const { accountType, firstName, lastName, password, email } = data
+		const user: SignupUser = {
+			email,
+			firstName,
+			lastName,
+			type: accountType,
+			password,
+		}
+		try {
+			const res = await fetch("/api/signup", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(user),
+			})
+			console.log(res)
+		} catch (error) {
+			console.log('something went wrong sending the data from the front-end', error)
+		}
 	}
 	return (
 		<Form {...form}>

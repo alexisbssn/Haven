@@ -1,5 +1,5 @@
-import argon2 from "argon2"
+import bcrypt from "bcrypt"
 
-export default async function unhashPass(unhashedPassword: string, hashedPassword: string) {
-	return await argon2.verify(hashedPassword, unhashedPassword)
+export default function unhashPass(unhashedPassword: string, hashedPassword: string): Promise<boolean> {
+	return bcrypt.compare(unhashedPassword, hashedPassword).then((result) => result)
 }

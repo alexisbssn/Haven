@@ -1,4 +1,4 @@
-import { User } from "@/types";
+import { User } from "@/dbTypes";
 import mongoose, { Schema } from "mongoose";
 
 // email: string;
@@ -26,6 +26,7 @@ const userSchema = new Schema<User>(
     myStory: String,
     languages: [String],
     type: String,
+    password: String,
   },
   { discriminatorKey: "type" }
 );

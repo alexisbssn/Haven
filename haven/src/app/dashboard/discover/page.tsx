@@ -4,13 +4,15 @@ import ProfileCard from "@/components/Cards/ProfileCard/ProfileCard"
 import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import getAllOffers from "@/lib/db/offerStore"
 import getAllUsers from "@/lib/db/userStore"
+import DashboardNavbar from "../../../components/DashboardNavbar/DashboardNavbar"
 
 export default async function Page() {
   const offers = await getAllOffers()
   const users = await getAllUsers()
 
   return (
-    <div className="overflow-scroll">
+    <section className="overflow-y-scroll">
+      <DashboardNavbar/>
       <div>Offers:</div>
       <div>
         {offers.map((offer) => (
@@ -29,6 +31,6 @@ export default async function Page() {
           <ProfileCard key={user._id} user={user} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

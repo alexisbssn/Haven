@@ -30,6 +30,20 @@ export default function OfferDialog({ offer }: Props) {
           {offer.creator.firstName} {offer.creator.lastName.slice(0, 1)}.
         </AlertDialogTitle>
         <AlertDialogDescription>{offer.creator.city}</AlertDialogDescription>
+        {/* request section */}
+        <div>
+          <div>{offer.creator.firstName}'s offer</div>
+          <div>Posted on {offer.createdAt.toDateString()}</div>
+          <div className="bold">{offer.type && offer.type.description}</div>
+          <div>{offer.description}</div>
+        </div>
+        {/* story section */}
+        <div>
+          <div>Read {offer.creator.firstName}'s story</div>
+          <div>{offer.creator.myStory}</div>
+        </div>
+        {/* more details reusable component */}
+        {/* share button, help button */}
       </AlertDialogHeader>
     </AlertDialogContent>
   )
